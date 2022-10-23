@@ -1,0 +1,212 @@
+header {
+  width: $container-max-width;
+  padding: 4rem 0;
+  @include xs {
+    padding: 1.6rem 0;
+  }
+
+  .wrap__header {
+    @include mid(true);
+    justify-content: space-between;
+    &-branch {
+      width: 8.2rem;
+      height: 4.8rem;
+    }
+    &-hamburger {
+      display: flex;
+      flex-direction: column;
+      cursor: none;
+      $t: 0.3s;
+      @include xs {
+        display: none;
+      }
+      span {
+        content: "";
+        width: 3.5rem;
+        height: 0.2rem;
+        border-radius: 3rem;
+        background-color: $warning-cl;
+        margin: 0.3rem 0;
+        position: relative;
+        @include transition($t $cubic);
+        &:nth-child(1) {
+          margin-left: auto;
+        }
+        &:nth-child(3) {
+          margin-right: auto;
+        }
+      }
+      &:hover {
+        span {
+          &:nth-child(1) {
+            width: 2.5rem;
+            @include transition($t $cubic);
+          }
+          &:nth-child(3) {
+            width: 2.5rem;
+            @include transition($t $cubic);
+          }
+        }
+      }
+    }
+  }
+  .header__show {
+    width: $container-max-width;
+    height: 0;
+    background-color: $second-cl;
+    position: fixed;
+    z-index: 200;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    @include transition(all $t $cubic);
+    @include xs {
+      display: none;
+    }
+
+    &.show {
+      height: 100vh;
+      @include transition(all $t $cubic);
+    }
+    .blur {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 48rem;
+      z-index: 5;
+    }
+    .nav {
+      z-index: 10;
+      position: relative;
+      max-height: 80vh;
+      margin: auto;
+      margin-top: 10rem;
+      ul {
+        $t: 0.3s;
+        @include mid(true);
+        align-items: flex-start;
+        flex-direction: column;
+        margin: 0 2rem;
+        li {
+          width: 100%;
+          padding: 4rem;
+          @include transition($t $cubic);
+          position: relative;
+          &:after {
+            content: "";
+            width: 100%;
+            height: 0%;
+            background-color: transparent;
+            display: block;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            position: absolute;
+            @include transition(all $t $cubic);
+          }
+          @include xs {
+            padding: 1.6rem;
+          }
+          a {
+            position: relative;
+            z-index: 5;
+            @include text(8rem, "poppins-b-ita", 1, $white100-cl, uppercase);
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke-width: 0.1rem;
+            -webkit-text-stroke-color: $white100-cl;
+            @include transition(all $t $cubic);
+            @include sm {
+              font-size: 6rem;
+              z-index: 50;
+            }
+            @include xs {
+              font-size: 4rem;
+              z-index: 50;
+            }
+          }
+          .me {
+            position: absolute;
+            top: -50%;
+            right: 20rem;
+            width: 25rem;
+            height: 35rem;
+            overflow: hidden;
+            opacity: 0;
+            z-index: 20;
+            @include transition(all $t $cubic);
+            @include xs {
+              transform: rotate(0) !important;
+              right: inherit !important;
+            }
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+            &.rotate-left {
+              transform: rotate(-20deg) translateX(2rem);
+            }
+            &.rotate-right {
+              transform: rotate(20deg) translateX(-2rem);
+            }
+          }
+          &:hover {
+            &::after {
+              background-color: $warning-cl;
+              opacity: 0.1;
+              height: 100%;
+              right: 0;
+              @include transition(all $t $cubic);
+            }
+            .rotate-left {
+              transform: rotate(-20deg) translateX(0);
+              opacity: 1;
+              @include transition(all $t $cubic);
+            }
+            .rotate-right {
+              transform: rotate(20deg) translateX(0);
+              opacity: 1;
+              @include transition(all $t $cubic);
+            }
+            a {
+              -webkit-text-fill-color: $warning-cl;
+              -webkit-text-stroke-color: $warning-cl;
+              @include transition(all 0.1s $cubic);
+            }
+          }
+        }
+      }
+    }
+    .hamburger {
+      position: absolute;
+      top: 3rem;
+      right: 3rem;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      cursor: none;
+      padding: 15px 0;
+      $t: 0.3s;
+      span {
+        content: "";
+        width: 3.5rem;
+        height: 0.2rem;
+        border-radius: 3rem;
+        background-color: $warning-cl;
+        position: relative;
+        margin: auto;
+        @include transition($t $cubic);
+        &:nth-child(1) {
+          transform: rotate(45deg);
+        }
+        &:nth-child(2) {
+          top: -0.2rem;
+          transform: rotate(-45deg);
+        }
+      }
+      &:hover {
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+footer {
+  padding: 5rem 0;
+  background: rgba($color: #091427, $alpha: 0.6);
+  .container {
+    p {
+      margin-bottom: 2rem;
+      @include text(var(--body18-fs), "poppins-r", auto, $white100-cl, none);
+    }
+    ul {
+      @include mid(true);
+      justify-content: flex-start;
+      gap: 0 2.4rem;
+      li {
+        a {
+          img {
+            width: 3.2rem;
+            height: 3.2rem;
+          }
+        }
+      }
+    }
+  }
+}

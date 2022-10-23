@@ -1,0 +1,589 @@
+body {
+  background-color: $main-cl;
+  position: relative;
+  --gap-section: 5rem;
+
+  @include xs {
+    --gap-section: 2.5rem;
+  }
+
+  .container {
+    @include xs {
+      padding: 0 1rem;
+    }
+  }
+
+  .blur-top {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 90rem;
+    height: 48rem;
+  }
+
+  main {
+    .title {
+      &.--section {
+        @include text(
+          var(--h3-fs),
+          "poppins-smBold",
+          1.2,
+          $white100-cl,
+          uppercase
+        );
+      }
+    }
+    .description {
+      @include text(var(--body16-fs), "poppins-r", auto, #868490, none);
+    }
+    .banner {
+      margin-top: 3rem;
+      @include mid(true);
+      align-items: flex-start;
+      height: 80vh;
+      position: relative;
+      justify-content: space-between;
+      @include xs {
+        padding: 0 1rem;
+        flex-direction: column;
+      }
+      &__intro {
+        max-width: 60rem;
+        z-index: 15;
+        position: relative;
+        &-job {
+          @include text(4.3rem, "poppins-smBold", 1, $text-gray-color, none);
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          -webkit-background-clip: text !important;
+          color: transparent;
+          background: linear-gradient(
+            90deg,
+            rgba(38, 135, 212, 1) 21%,
+            rgba(192, 0, 255, 1) 79%
+          );
+          span {
+            color: $warning-cl;
+          }
+          @include xs {
+            font-size: 2.8rem;
+          }
+        }
+        &-title {
+          margin-top: 2rem;
+          @include text(7.5rem, "poppins-b", 0.7, $white100-cl, uppercase);
+          overflow: hidden;
+          @include xs {
+            font-size: 4rem;
+          }
+          span {
+            transform: translateY(100px);
+          }
+        }
+        &-description {
+          max-width: 38rem;
+          @include text(1.6rem, "poppins-r", 3.6rem, $text-gray-color, none);
+        }
+        .line {
+          content: "";
+          width: 20rem;
+          height: 0.2rem;
+          border-radius: 6rem;
+          background-color: $warning-cl;
+          display: block;
+          margin: 3rem 0;
+        }
+        .talk {
+          margin-top: 8rem;
+          @include mid(true);
+          display: inline-flex;
+          @include text(1.6rem, "poppins-r", 3.6rem, $light-warning-cl, none);
+          img {
+            margin-left: 10rem;
+          }
+          @include xs {
+            img {
+              margin-left: 2rem;
+            }
+          }
+        }
+      }
+      &__img {
+        @include mid();
+        left: 55%;
+        top: 40%;
+        z-index: 10;
+        @include xs {
+          width: 100%;
+          left: 0;
+          transform: translateY(-50%);
+        }
+        .wrap {
+          width: 45rem;
+          height: 65rem;
+          overflow: hidden;
+          position: relative;
+          @include xs {
+            width: 100%;
+            height: 50rem;
+            margin: auto;
+          }
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          span {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            letter-spacing: -5px;
+            @include text(15rem, "poppins-B", 0.72, $white100-cl, none);
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke-width: 0.1rem;
+            -webkit-text-stroke-color: $white100-cl;
+            @include xs {
+              font-size: 10rem;
+            }
+          }
+        }
+      }
+      &__connect {
+        z-index: 15;
+        position: relative;
+        @include xs {
+          transform: translateY(1rem);
+          @include mid(true);
+          gap: 0 2rem;
+          width: 100%;
+        }
+        &-item {
+          margin-bottom: 6rem;
+          text-align: right;
+          @include xs {
+            text-align: center;
+          }
+          span {
+            @include text(1.6rem, "poppins-m", 1, $text-gray-color, none);
+          }
+          h5 {
+            @include text(5rem, "poppins-m", 1, $white100-cl, none);
+          }
+          @include xs {
+            margin-bottom: 0;
+            h5 {
+              font-size: 3.2rem;
+            }
+          }
+        }
+      }
+    }
+    .links {
+      padding: var(--gap-section) auto;
+      padding: 6rem 0;
+      backdrop-filter: blur(10px);
+      width: 100%;
+      @include xs {
+        padding: 3rem 0;
+      }
+      .blur-mid {
+        width: 45rem;
+        height: 90rem;
+        position: absolute;
+        left: 0;
+        top: -25rem;
+      }
+      .container {
+        @include mid(true);
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      .list {
+        padding: 8rem 0;
+        background: rgba($color: #091427, $alpha: 0.6);
+        backdrop-filter: blur(8px);
+        @include xs {
+          padding: 4rem 0;
+          text-align: center;
+        }
+      }
+      &__item {
+        a {
+          @include text(3rem, "poppins-smBold", 1, $white100-cl, none);
+          @include xs {
+            font-size: 1.6rem;
+          }
+        }
+      }
+    }
+    .services {
+      margin: var(--gap-section) 0;
+      .container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 0 1.6rem;
+        flex-direction: row;
+        @include xs {
+          flex-direction: column;
+          .services__info {
+            margin-bottom: 2rem;
+          }
+        }
+      }
+      &__info {
+        max-width: 45rem;
+        @include md {
+          max-width: 25rem;
+        }
+        @include xs {
+          max-width: 100%;
+          text-align: center;
+        }
+        .title {
+          margin-bottom: 2.4rem;
+        }
+      }
+      &__list {
+        @include mid(true);
+        width: 100%;
+        flex-direction: column;
+        gap: 1.6rem 0;
+        &-item {
+          width: 100%;
+          padding: 2.4rem;
+          border-radius: 0.6rem;
+          background: rgba($color: #091427, $alpha: 0.8);
+          backdrop-filter: blur(9px);
+          border: 1px solid rgba($color: #ffffff, $alpha: 0.12);
+          @include xs {
+            padding: 1.6rem;
+          }
+          &:hover {
+            border: 1px solid rgba($color: #747bff, $alpha: 0.8);
+            background: rgba($color: #747bff, $alpha: 0.07);
+            transition: all 0.3s;
+            a {
+              .content {
+                h4 {
+                  background-image: linear-gradient(
+                    120deg,
+                    #bd34fe 16%,
+                    #747bff,
+                    #747bff
+                  );
+                  -webkit-text-fill-color: transparent;
+                  -webkit-background-clip: text;
+                  background-clip: text;
+                  transition: all 0.3s;
+                }
+              }
+            }
+          }
+          a {
+            @include mid(true);
+            gap: 0 2rem;
+            flex: 1;
+            justify-content: flex-start;
+            .image {
+              max-width: 10rem;
+              border-radius: 0.6rem;
+              overflow: hidden;
+              position: relative;
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+            }
+            .arrow {
+              margin-left: auto;
+              width: 3rem;
+              height: 3rem;
+            }
+            .content {
+              h4 {
+                @include text(
+                  var(--h5-fs),
+                  "poppins-smBold",
+                  auto,
+                  $white100-cl,
+                  none
+                );
+                margin-bottom: 1rem;
+              }
+              span {
+                @include text(
+                  var(--body16-fs),
+                  "poppins-r",
+                  auto,
+                  #868490,
+                  none
+                );
+              }
+            }
+          }
+        }
+      }
+    }
+    .porfolio {
+      padding: var(--gap-section) 0;
+      position: relative;
+      .blur-img {
+        width: 90rem;
+        height: 120rem;
+        position: absolute;
+        right: 0;
+        top: -5rem;
+      }
+      .wrap {
+        padding: 3rem;
+        background: rgba($color: #091427, $alpha: 0.6);
+        border-radius: 1.2rem;
+      }
+      &__header {
+        @include mid(true);
+        justify-content: space-between;
+        margin-bottom: 3.2rem;
+      }
+      &__list {
+        @include mid(true);
+        flex-wrap: wrap;
+        gap: 1.6rem;
+        width: 100%;
+
+        &-item {
+          width: 32.3%;
+          border-top-left-radius: 1.5rem;
+          border-top-right-radius: 1.5rem;
+          transition: all 0.3s;
+          cursor: pointer;
+
+          @include sm {
+            width: 48%;
+          }
+
+          @include xs {
+            width: 100%;
+          }
+
+          &:hover {
+            background: rgba($color: #747bff, $alpha: 0.2);
+            transition: all 0.3s;
+          }
+
+          .image {
+            border-top-left-radius: 1.5rem;
+            border-top-right-radius: 1.5rem;
+            overflow: hidden;
+            img {
+              width: 100%;
+              height: 100%;
+              background-size: cover;
+              transition: all 0.3s;
+            }
+            &:hover {
+              img {
+                transform: scale(1.1);
+                transition: all 0.3s;
+              }
+            }
+          }
+          .content {
+            padding: 2rem;
+            h5 {
+              @include text(2rem, "poppins-smBold", 1, $white100-cl, none);
+              margin-bottom: 1.2rem;
+            }
+            p {
+              @include text(var(--body16-fs), "poppins-r", 1, #868490, none);
+            }
+          }
+        }
+      }
+    }
+    .worker {
+      padding: var(--gap-section) 0;
+      position: relative;
+      .title {
+        margin-bottom: 3.2rem;
+      }
+      .splide {
+        visibility: visible !important;
+        &__track {
+          position: relative;
+        }
+        .drag {
+          @include mid(true);
+          position: absolute;
+          bottom: 2rem;
+          right: 2rem;
+          @include sm {
+            margin-top: 2rem;
+            position: relative;
+            bottom: 0;
+            right: 0;
+          }
+          @include xs {
+            margin-top: 2rem;
+            position: relative;
+            bottom: 0;
+            right: 0;
+          }
+          span {
+            @include text(var(--body12-fs), "poppins-r", 1.2, #868490, none);
+            margin-right: 1rem;
+            white-space: nowrap;
+          }
+          .my-slider-progress {
+            background: rgb(52, 52, 52);
+            border-radius: 3rem;
+            width: 50rem;
+            @include xs {
+              width: 100%;
+            }
+          }
+          .my-slider-progress-bar {
+            background: #747bff;
+            transition: width 400ms ease;
+            width: 0;
+            height: 0.1rem;
+          }
+        }
+
+        &__slide {
+          &-item {
+            @include mid(true);
+            @include xs {
+              flex-direction: column;
+            }
+            .img {
+              width: 40rem;
+              min-width: 40rem;
+              height: 54rem;
+              overflow: hidden;
+              @include xs {
+                width: 100%;
+                height: 45rem;
+              }
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+            }
+            .content {
+              padding-left: 8rem;
+              @include sm {
+                padding-left: 3rem;
+              }
+              @include xs {
+                padding-left: 0;
+                padding-top: 1.6rem;
+              }
+              .dotted {
+                @include text(10rem, "poppins-smBold", 0.6, $white100-cl, none);
+                @include xs {
+                  font-size: 5rem;
+                }
+              }
+              .talk {
+                margin-bottom: 4rem;
+                @include text(
+                  var(--h4-fs),
+                  "poppins-smBold",
+                  1.2,
+                  $white100-cl,
+                  none
+                );
+              }
+              .info {
+                .author {
+                  margin-bottom: 0.8rem;
+                  @include text(
+                    var(--body22-fs),
+                    "poppins-smBold",
+                    1.2,
+                    $white100-cl,
+                    none
+                  );
+                }
+                .position {
+                  @include text(
+                    var(--body16-fs),
+                    "poppins-r",
+                    1.2,
+                    #868490,
+                    none
+                  );
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .collaspe {
+      padding: var(--gap-section) 0;
+      position: relative;
+      z-index: 5;
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0 2rem;
+        @include xs {
+          flex-direction: column;
+        }
+      }
+      .content {
+        max-width: 50rem;
+        @include sm {
+          max-width: 35rem;
+        }
+        @include xs {
+          max-width: 100%;
+        }
+        p {
+          margin-bottom: 3rem;
+          @include text(
+            var(--h3-fs),
+            "poppins-smBold",
+            1.2,
+            $white100-cl,
+            none
+          );
+          @include xs {
+            margin-bottom: 1.6rem;
+          }
+        }
+        a {
+          justify-content: flex-start;
+          display: inline-flex;
+          gap: 0 1.6rem;
+          @include text(var(--body14-fs), "poppins-r", auto, #f8e7a1, none);
+        }
+      }
+      .img {
+        width: 48rem;
+        height: 59rem;
+        overflow: hidden;
+        transform: translateY(15rem);
+        @include sm {
+          height: auto;
+        }
+        @include xs {
+          margin-top: 1.6rem;
+          width: 100%;
+          transform: translateY(0);
+          height: auto;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          background-size: cover;
+        }
+      }
+    }
+  }
+}
