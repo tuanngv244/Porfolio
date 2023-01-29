@@ -141,16 +141,18 @@ $(document).ready(function () {
   //   .from(".nav__lang", { opacity: 0, x: 60, duration: 0.5 }, "=-0.4")
   //   .from(".nav__social", { opacity: 0, x: 60, duration: 0.5 }, "=-0.4");
   // INIT
+
   function init() {
     // $("body")
     //   .imagesLoaded()
     //   .progress({ background: true }, function (instance, image) {})
     //   .always(function (instance) {
     //     //  load func
-    //     setTimeout(() => {
-    //       $(".loading").addClass("--hide");
-    //     }, 150);
-    //   })
+    setTimeout(() => {
+      $(".loading").addClass("--hide");
+      $(".loading").find(".loading-spinner").css("display", "none");
+    }, 1500);
+    // })
     //   .fail(function () {})
     //   .done(function (instance) {});
   }

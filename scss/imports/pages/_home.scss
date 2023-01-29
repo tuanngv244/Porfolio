@@ -21,6 +21,63 @@ body {
     height: 48rem;
   }
 
+  .loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: $white100-cl;
+    @include transition(0.45s);
+    &-spinner {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 4rem;
+      height: 4rem;
+      position: relative;
+      span {
+        position: absolute;
+        content: "";
+
+        display: block;
+        background-color: $black100-cl;
+
+        // &:nth-child(1) {
+        //   top: 0;
+        //   left: 0;
+        // }
+        // &:nth-child(2) {
+        //   top: 0;
+        //   right: 0;
+        // }
+        // &:nth-child(3) {
+        //   bottom: 0;
+        //   right: 0;
+        // }
+        // &:nth-child(4) {
+        //   bottom: 0;
+        //   left: 0;
+        // }
+
+        // @keyframes runLine {
+        // }
+      }
+      h6 {
+        @include text(
+          var(--h5-fs),
+          "poppins-smBold",
+          1.2,
+          $black100-cl,
+          uppercase
+        );
+      }
+    }
+    &.--hide {
+      height: 0;
+      @include transition(0.45s);
+    }
+  }
+
   main {
     .title {
       &.--section {
@@ -396,8 +453,14 @@ body {
           .content {
             padding: 2rem;
             h5 {
-              @include text(2rem, "poppins-smBold", 1, $white100-cl, none);
+              @include text(2rem, "poppins-smBold", 1.1, $white100-cl, none);
               margin-bottom: 1.2rem;
+              min-height: 4.4rem;
+              display: -webkit-box;
+              -webkit-line-clamp: 2;
+              -webkit-box-orient: vertical;
+              text-overflow: ellipsis;
+              overflow: hidden;
             }
             p {
               @include text(var(--body16-fs), "poppins-r", 1, #868490, none);
